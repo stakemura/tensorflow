@@ -117,7 +117,12 @@ cc_library(
         "//tensorflow/lite/profiling:profiler",
         "//tensorflow/lite/tools/evaluation:utils",
         "@gemmlowp",
-    ],
+    ] + select({
+        "//tensorflow:android": [
+            "//tensorflow/lite/delegates/gpu/cl:gpu_api_delegate",
+        ],
+        "//conditions:default": [],
+    }),
 )
 
 cc_library(
