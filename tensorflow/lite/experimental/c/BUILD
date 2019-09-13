@@ -76,13 +76,6 @@ tflite_cc_shared_object(
 
 objc_library(
     name = "tensorflowlite_c_metal",
-    linkopts = select({        
-        "//tensorflow:windows": [],
-        "//conditions:default": [
-            "-z defs",
-            "-Wl,--version-script,$(location //tensorflow/lite/experimental/c:version_script.lds)",
-        ],
-    }),
     deps = [
         ":c_api",
         ":c_api_experimental",
