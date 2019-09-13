@@ -74,7 +74,7 @@ tflite_cc_shared_object(
     ],
 )
 
-cc_library(
+objc_library(
     name = "tensorflowlite_c_metal",
     linkopts = select({        
         "//tensorflow:windows": [],
