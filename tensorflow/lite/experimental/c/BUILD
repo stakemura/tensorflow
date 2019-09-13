@@ -75,6 +75,24 @@ tflite_cc_shared_object(
 )
 
 cc_library(
+    name = "tensorflowlite_c_metal",
+    linkopts = select({        
+        "//tensorflow:windows": [],
+        "//conditions:default": [
+            "-z defs",
+            "-Wl,--version-script,$(location //tensorflow/lite/experimental/c:version_script.lds)",
+        ],
+    }),
+    deps = [
+        ":c_api",
+        ":c_api_experimental",
+        ":exported_symbols.lds",
+        ":version_script.lds",
+        "//tensorflow/lite/delegates/gpu:metal_delegate",
+    ],
+)
+
+cc_library(
     name = "c_api_internal",
     srcs = [
         "c_api.h",
