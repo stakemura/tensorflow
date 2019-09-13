@@ -76,10 +76,18 @@ tflite_cc_shared_object(
 
 objc_library(
     name = "tensorflowlite_c_metal",
+    hdrs = [
+        "//tensorflow/lite/delegates/gpu:metal_delegate.h",
+        "c_api.h",
+        "c_api_experimental.h",
+    ],
+    weak_sdk_frameworks = [
+        "Metal",
+    ],
     deps = [
+        "//tensorflow/lite/delegates/gpu:metal_delegate",
         ":c_api",
         ":c_api_experimental",
-        "//tensorflow/lite/delegates/gpu:metal_delegate",
     ],
 )
 
