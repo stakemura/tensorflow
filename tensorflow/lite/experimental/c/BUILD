@@ -79,8 +79,6 @@ objc_library(
     deps = [
         ":c_api",
         ":c_api_experimental",
-        ":exported_symbols.lds",
-        ":version_script.lds",
         "//tensorflow/lite/delegates/gpu:metal_delegate",
     ],
 )
