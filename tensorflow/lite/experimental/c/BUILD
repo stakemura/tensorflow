@@ -3,6 +3,7 @@ load(
     "tflite_cc_shared_object",
     "tflite_copts",
 )
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_static_framework")
 
 package(
     default_visibility = [":experimental"],
@@ -74,7 +75,7 @@ tflite_cc_shared_object(
     ],
 )
 
-objc_library(
+ios_static_framework(
     name = "tensorflowlite_c_metal",
     hdrs = [
         "//tensorflow/lite/delegates/gpu:metal_delegate.h",
