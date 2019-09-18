@@ -82,9 +82,6 @@ ios_static_framework(
         "c_api.h",
         "c_api_experimental.h",
     ],
-    weak_sdk_frameworks = [
-        "Metal",
-    ],
     deps = [
         "//tensorflow/lite/delegates/gpu:metal_delegate",
         ":c_api",
