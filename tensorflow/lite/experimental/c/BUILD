@@ -77,6 +77,7 @@ tflite_cc_shared_object(
 
 ios_static_framework(
     name = "tensorflowlite_c_metal",
+    minimum_os_version = "9.0",
     hdrs = [
         "//tensorflow/lite/delegates/gpu:metal_delegate.h",
         "c_api.h",
